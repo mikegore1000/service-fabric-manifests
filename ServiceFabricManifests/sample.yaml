@@ -1,0 +1,41 @@
+# Rules
+# 1. Remove duplication
+# 2. Simple & clear schema
+# 3. Works with .NET Core
+# 4. No reliance on MSBuild - CLI produces the package
+# 5. Focus on the parts of SF we use, add other aspects later on
+# 6. Don't allow anti-patterns e.g. Default Services
+
+application:
+  name: Test
+  parameters:
+    - name: Hello # Could we derive this from the env vars?
+  services:
+    - name: Test
+      environmentVariables: # Should be used to set env var overrides in App Manifest
+        - name: Hello # How to inject these in?  Any value if we are using OD
+          parameterValue: Test
+        - name: Another
+          value: Static value
+      extensions:
+        - name: Traefik
+          xmlValue: |
+            <Labels xmlns="http://schemas.microsoft.com/2015/03/fabact-no-schema">
+              <Label Key="traefik.frontend.rule.example">PathPrefixStrip: /a/path/to/strip</Label>
+              <Label Key="traefik.expose">true</Label>
+              <Label Key="traefik.frontend.passHostHeader">true</Label>
+            </Labels>
+      guestExe:
+        sourceDir: c:\test
+        program: notepad.txt
+      endpoints:
+        - name: ApiEndpoint
+          uriScheme: https
+          port: 443
+  # TODO: Figure out how we model the below
+  # certificates:
+  #   - name: tlsCert
+  #     type: secrets
+  #     findValue: bob
+  # policies:
+  # principals:
