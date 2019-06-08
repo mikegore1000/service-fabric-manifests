@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\git\\service-fabric-manifests\\ServiceFabricManifests\\ServiceFabricManifests.csproj": {}
+    "C:\\Git\\service-fabric-manifests\\ServiceFabricManifests\\ServiceFabricManifests.csproj": {}
   },
   "projects": {
-    "C:\\git\\service-fabric-manifests\\ServiceFabricManifests\\ServiceFabricManifests.csproj": {
+    "C:\\Git\\service-fabric-manifests\\ServiceFabricManifests\\ServiceFabricManifests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\git\\service-fabric-manifests\\ServiceFabricManifests\\ServiceFabricManifests.csproj",
+        "projectUniqueName": "C:\\Git\\service-fabric-manifests\\ServiceFabricManifests\\ServiceFabricManifests.csproj",
         "projectName": "ServiceFabricManifests",
-        "projectPath": "C:\\git\\service-fabric-manifests\\ServiceFabricManifests\\ServiceFabricManifests.csproj",
+        "projectPath": "C:\\Git\\service-fabric-manifests\\ServiceFabricManifests\\ServiceFabricManifests.csproj",
         "packagesPath": "C:\\Users\\mikeg\\.nuget\\packages\\",
-        "outputPath": "C:\\git\\service-fabric-manifests\\ServiceFabricManifests\\obj\\",
+        "outputPath": "C:\\Git\\service-fabric-manifests\\ServiceFabricManifests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
