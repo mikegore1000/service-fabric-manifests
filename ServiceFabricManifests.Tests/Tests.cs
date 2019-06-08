@@ -27,5 +27,32 @@ namespace ServiceFabricManifests.Tests
             Assert.That(output.ApplicationTypeVersion, Is.EqualTo(input.Application.Version));
             Assert.That(output.Parameters, Has.Count.EqualTo(input.Application.Parameters.Count()));
         }
+
+        [TestCase(null)]
+        [TestCase("")]
+        public void given_a_manifest_with_invalid_application_name_then_an_error_is_thrown(string name)
+        {
+            var input = new Manifest();
+            input.Application = new Application();
+            input.Application.Name = name;
+            input.Application.Version =  Version.Parse("1.0.0");
+
+            var generator = new ApplicationManifestGenerator();
+
+            Assert.Throws<ArgumentException>(() => generator.Generate(input));
+        }
+
+        [Test]
+        public void given_a_manifest_with_invalid_application_version_then_an_error_is_thrown()
+        {
+            var input = new Manifest();
+            input.Application = new Application();
+            input.Application.Name = "TestApp";
+            input.Application.Version = null;
+
+            var generator = new ApplicationManifestGenerator();
+
+            Assert.Throws<ArgumentException>(() => generator.Generate(input));
+        }
     }
 }

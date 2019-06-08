@@ -14,6 +14,12 @@ namespace ServiceFabricManifests.Output
 
         public ApplicationManifest(string name, Version applicationTypeVersion)
         {
+            if(string.IsNullOrWhiteSpace(name))
+                throw new ArgumentException("Name must be a non-empty string", nameof(name));
+
+            if(applicationTypeVersion == null)
+                throw new ArgumentException("ApplicationTypeVersion must be a valid semver version number", nameof(applicationTypeVersion));
+
             this.Name = name;
             this.ApplicationTypeVersion = applicationTypeVersion;
             this.Parameters = new List<Parameter>();
