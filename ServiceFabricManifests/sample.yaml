@@ -8,6 +8,7 @@
 
 application:
   name: Test
+  version: 1.0.0
   parameters:
     - name: Hello # Could we derive this from the env vars?
   services:
